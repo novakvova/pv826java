@@ -14,6 +14,6 @@ import net.javaguides.springbootsecurity.entities.User;
 public interface UserRepository extends JpaRepository<User, Integer>
 {
 
+	//User findByEmail(String email);
 	Optional<User> findByEmail(String email);
-
 }

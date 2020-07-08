@@ -56,5 +56,8 @@ public class Role
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
+
+	public Role(@NotEmpty String name) {
+		this.name = name;
+	}
 }
