@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     public User findByEmail(String email){
-        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Email " + email + " not found"));
+        return userRepository.findByEmail(email);
     }
 
     public User save(UserRegistrationDto registration){
@@ -34,13 +34,14 @@ public class UserServiceImpl implements UserService {
         user.setName(registration.getFirstName()+ " " + registration.getLastName());
         user.setEmail(registration.getEmail());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
-        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+        //user.setId(12);
+        //user.setRoles(Arrays.asList(new Role("ROLE_USER")));
         return userRepository.save(user);
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("Email " + email + " not found"));
+        User user = userRepository.findByEmail(email);
         if (user == null){
             throw new UsernameNotFoundException("Invalid username or password.");
         }
