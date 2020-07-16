@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout">
+<head>
+    <title>Drag</title>
+    <link rel="stylesheet"
+          th:href="@{/assets/css/index.min.css}" />
+    <link rel="stylesheet"
+          th:href="@{/assets/css/drag.css}">
+</head>
+<body>
+<div layout:fragment="content">
+<div class="dropzone">
+    <div id="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+        This div is draggable
+    </div>
+<img data-id="1" class="AAA" width="50px" src="https://tehnot.com/wp-content/uploads/2019/10/photoshop-cc-ipad-pro-800x640.jpg">
+    <img data-id="2" class="AAA" width="50px" src="https://i2.wp.com/itc.ua/wp-content/uploads/2018/07/Photoshop.jpg?fit=1200%2C608&quality=100&strip=all&ssl=1">
+    <img data-id="3" class="AAA" width="50px" src="https://boxprograms.ru/wp-content/uploads/2018/11/adobe-photoshop-interfeys.png">
+</div>
+<div class="dropzone"></div>
+<div class="dropzone"></div>
+<div class="dropzone"></div>
+</div>
+</body>
+</html>
+
