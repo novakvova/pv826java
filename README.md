@@ -1,4 +1,4 @@
-# Course project student group pd825 JAVA Spring, Hibernate and Maven
+# Course project student group pd826 JAVA Spring, Hibernate and Maven
 
 
 **springboot-security-boot**: This secure a SpringBoot +Thymeleaf based web application using Spring Security.
