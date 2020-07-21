@@ -30,9 +30,9 @@ var depsjs = {
     "vue-router": {
         "dist/vue-router.min.js": "vue/"
     },
-    // "axios": {
-    //     "dist/axios.min.js": ""
-    // }
+    "axios": {
+        "dist/axios.min.js": ""
+    }
 };
 
 gulp.task("clean", function (cb) {
