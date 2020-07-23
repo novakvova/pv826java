@@ -4,16 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -45,14 +36,50 @@ public class User
 	      inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
 	private List<Role> roles;
 
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<DbImage> images;
+
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY, optional = false)
+	private ContactInfo contactInfo;
+
+	public void setContactInfo(ContactInfo contactInfo) {
+		if (contactInfo == null) {
+			if (this.contactInfo != null) {
+				this.contactInfo.setUser(null);
+			}
+		}
+		else {
+			contactInfo.setUser(this);
+		}
+		this.contactInfo = contactInfo;
+	}
+
+	public ContactInfo getContactInfo() {
+		return contactInfo;
+	}
+
+
 	public User() {
 		roles = new ArrayList<Role>();
+		images = new ArrayList<DbImage>();
 	}
 
 	public User(@NotEmpty() String name, @NotEmpty @Email(message = "{errors.invalid_email}") String email, @NotEmpty @Size(min = 4) String password) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		roles = new ArrayList<Role>();
+		images = new ArrayList<DbImage>();
+	}
+
+	public void addImage(DbImage image) {
+		image.setUser(this);
+		images.add(image);
+	}
+
+	public void removeImage(DbImage image) {
+		images.remove(image);
 	}
 
 	public Integer getId()
@@ -94,5 +121,13 @@ public class User
 	public void setRoles(List<Role> roles)
 	{
 		this.roles = roles;
+	}
+
+	public List<DbImage> getImages() {
+		return images;
+	}
+
+	public void setImages(List<DbImage> images) {
+		this.images = images;
 	}
 }
