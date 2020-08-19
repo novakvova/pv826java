@@ -14,6 +14,20 @@ var merge = require('merge-stream');
 var depscss = {
     "bootstrap": {
         "dist/css/bootstrap.min.css": ""
+    },
+    "lightbox2": {
+        "dist/images/close.png": "/lightbox2/images",
+        "dist/images/loading.gif": "/lightbox2/images",
+        "dist/images/next.png": "/lightbox2/images",
+        "dist/images/prev.png": "/lightbox2/images",
+        "dist/css/lightbox.css": "/lightbox2/css",
+        "dist/css/lightbox.min.css": "/lightbox2/css",
+        "dist/js/lightbox.js": "/lightbox2/js",
+        "dist/js/lightbox.min.js": "/lightbox2/js",
+        "dist/js/lightbox.min.map": "/lightbox2/js",
+        "dist/js/lightbox-plus-jquery.js": "/lightbox2/js",
+        "dist/js/lightbox-plus-jquery.min.js": "/lightbox2/js",
+        "dist/js/lightbox-plus-jquery.min.map": "/lightbox2/js",
     }
 };
 
