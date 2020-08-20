@@ -15,6 +15,10 @@ var depscss = {
     "bootstrap": {
         "dist/css/bootstrap.min.css": ""
     },
+    "chart.js": {
+        "dist/Chart.css": "",
+        "dist/Chart.min.css": "",
+    },
     "lightbox2": {
         "dist/images/close.png": "/lightbox2/images",
         "dist/images/loading.gif": "/lightbox2/images",
@@ -34,6 +38,10 @@ var depscss = {
 var depsjs = {
     "bootstrap": {
         "dist/js/bootstrap.min.js": ""
+    },
+    "chart.js": {
+        "dist/Chart.js": "",
+        "dist/Chart.min.js": ""
     },
     "jquery": {
         "dist/jquery.js": ""
