@@ -7,10 +7,53 @@
 
 <head>
     <title>Галерея</title>
+    <div layout:fragment="styles">
+        <link th:href="@{'/lib/css/lightbox2/css/lightbox.min.css'}" rel="stylesheet"/>
+    </div>
 </head>
 <body>
-<div layout:fragment="content">
+<div layout:fragment="content" style="margin-top: 50px;">
+    <div class="container">
+        <h1>Галерея працівників</h1>
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"
+                   data-lightbox="example-set" data-title="Click the right half of the image to move forward.">
+                    <img class="img-responsive" src="https://lokeshdhakar.com/projects/lightbox2/images/thumb-3.jpg"
+                         alt="Golden Gate Bridge with San Francisco in distance">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="https://lokeshdhakar.com/projects/lightbox2/images/image-4.jpg"
+                   data-lightbox="example-set" data-title="Or press the right arrow on your keyboard.">
+                    <img class="img-responsive" src="https://lokeshdhakar.com/projects/lightbox2/images/thumb-4.jpg"
+                         alt="Forest with mountains behind">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="https://lokeshdhakar.com/projects/lightbox2/images/image-5.jpg"
+                   data-lightbox="example-set" data-title="The next image in the set is preloaded as you're viewing.">
+                    <img class="img-responsive" src="https://lokeshdhakar.com/projects/lightbox2/images/thumb-5.jpg"
+                         alt="Bicyclist looking out over hill at ocean">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
 
+                <a class="thumbnail" href="https://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg"
+                   data-lightbox="example-set"
+                   data-title="Click anywhere outside the image or the X to the right to close.">
+                    <img class="img-responsive" src="https://lokeshdhakar.com/projects/lightbox2/images/thumb-6.jpg"
+                         alt="Small lighthouse at bottom with ocean behind">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div layout:fragment="scripts">
+    <script th:src="@{'/lib/css/lightbox2/js/lightbox.min.js'}"></script>
+    <script th:src="@{'/lib/css/lightbox2/js/lightbox-plus-jquery.min.js'}"></script>
 </div>
 
 </body>
