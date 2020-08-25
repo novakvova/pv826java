@@ -1,5 +1,9 @@
 <!doctype html>
-<html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="utf-8">
 <title>Ethereal - Free Responsive HTML5 Website Template</title>
@@ -143,7 +147,7 @@
           </div>
           <div class="item">
             <p><sup><i class="fa fa-quote-left"></i></sup>Morbi velit mauris, hendrerit in convallis vel, laoreet et orci. Integer semper, est vel congue suscipit, nisl nibh convallis lorem, sit amet faucibus purus lacus eu nulla. Sed nec blandit ante, sed semper tellus.<sup><i class="fa fa-quote-right"></i></sup></p>
-            <div class="test-img"> <img src="images/team-img-03.jpg"/>
+            <div class="test-img"> <img th:src="@{/assets/template/images/team-img-03.jpg}"/>
               <p><strong>John Deo</strong></p>
             </div>
           </div>
