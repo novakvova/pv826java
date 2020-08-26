@@ -18,7 +18,7 @@
         <h1>Ви дійсно бажаєте видалити фото?</h1>
         <form th:action="@{/gallery/delete}" method="post" id="form" class="form">
 
-            <img class="img-responsive"
+            <img class="img-responsive" width="450"
                  th:src="'/files/' + ${gallery.getName()}"
                  alt="Golden Gate Bridge with San Francisco in distance">
 
