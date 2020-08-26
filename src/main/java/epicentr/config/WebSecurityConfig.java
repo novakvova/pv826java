@@ -53,6 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/api/v1/products").permitAll()
 				.antMatchers("/products").permitAll()
 				.antMatchers("/gallery/**").permitAll()
+				.antMatchers("/gallery/delete/**").permitAll()
 				.antMatchers("/statistic").permitAll()
 				.antMatchers("/lib/**").permitAll()
 				.antMatchers("/admin/**").hasRole("ADMIN")
