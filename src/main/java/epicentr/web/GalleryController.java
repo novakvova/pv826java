@@ -92,7 +92,24 @@ public class GalleryController {
 
     @PostMapping("gallery/delete")
     public String DeleteProduct(Gallery model) {
-        galleryRepository.delete(galleryRepository.findById(model.getId()).get());
+
+        Gallery ddd = galleryRepository.findById(model.getId()).get();
+
+        Path f = storageService.load("");
+        String rootPath= f.toUri().getPath();
+        File dir = new File(rootPath + File.separator );
+        File serverFile = new File(dir.getAbsolutePath()
+                + File.separator + ddd.getName());
+
+        if(serverFile.delete())
+        {
+            System.out.println("File deleted successfully");
+        }
+        else
+        {
+            System.out.println("Failed to delete the file");
+        }
+        galleryRepository.delete(ddd);
         return "redirect:/gallery";
     }
 
