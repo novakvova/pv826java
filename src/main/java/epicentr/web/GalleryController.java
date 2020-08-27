@@ -90,4 +90,10 @@ public class GalleryController {
         return "gallery/delete";
     }
 
+    @PostMapping("gallery/delete")
+    public String DeleteProduct(Gallery model) {
+        galleryRepository.delete(galleryRepository.findById(model.getId()).get());
+        return "redirect:/gallery";
+    }
+
 }

@@ -17,12 +17,9 @@
     <div class="container" style="background-color: #FFFFFF">
         <h1>Ви дійсно бажаєте видалити фото?</h1>
         <form th:action="@{/gallery/delete}" method="post" id="form" class="form">
-
-            <img class="img-responsive" width="450"
-                 th:src="'/files/' + ${gallery.getName()}"
-                 alt="Golden Gate Bridge with San Francisco in distance">
-
-            <button type="submit" class="btn btn-default">Видалити</button>
+            <input name="id" type="hidden" th:value="${gallery.getId()}"/>
+            <img class="img-responsive" width="450" th:src="'/files/' + ${gallery.getName()}" alt="Golden Gate Bridge with San Francisco in distance">
+            <button type="submit" class="btn btn-danger">Видалити</button>
         </form>
 
 
