@@ -5,7 +5,10 @@ import epicentr.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -16,6 +19,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/products")
 @Slf4j
+@EnableAutoConfiguration
+@ComponentScan
 @RequiredArgsConstructor
 public class ProductAPI {
     @Autowired

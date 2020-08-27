@@ -4,16 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -45,14 +37,30 @@ public class User
 	      inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
 	private List<Role> roles;
 
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Image> images;
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Order> orders;
+
 	public User() {
 		roles = new ArrayList<Role>();
+		images = new ArrayList<Image>();
 	}
+
 
 	public User(@NotEmpty() String name, @NotEmpty @Email(message = "{errors.invalid_email}") String email, @NotEmpty @Size(min = 4) String password) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
+	}
+
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
 	}
 
 	public Integer getId()
