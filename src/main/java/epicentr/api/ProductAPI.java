@@ -24,6 +24,13 @@ public class ProductAPI {
     @GetMapping
     public ResponseEntity<List<Product>> findAll() {
         List<Product> r =productService.findAll();
+        for (int i=0;i<r.size();i++) {
+            int s =r.get(i).getProductImages().size();
+            r.get(i).setOrders(null);
+            for (int j = 0; j<s;j++){
+                r.get(i).getProductImages().get(j).setProduct(null);
+            }
+        }
         return ResponseEntity.ok(r);
     }
 

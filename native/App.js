@@ -6,7 +6,8 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {Component} from 'react';
+import HomeScrean from './components/Home/HomeScrean';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,13 +25,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <Text>Привіт! Козаки.</Text>
-    </>
-  );
-};
-
+class App extends React.Component {
+  render() {
+    return (
+      <Text>HELLO</Text>
+    );
+  }
+}
 
 export default App;
