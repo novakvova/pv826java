@@ -26,8 +26,12 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductImage> productImages;
 
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders;
+
     public Product() {
         productImages = new ArrayList<ProductImage>();
+        orders = new ArrayList<Order>();
     }
 
     public Product(String name, String description, BigDecimal price) {
@@ -35,16 +39,35 @@ public class Product {
         this.description = description;
         this.price = price;
         productImages = new ArrayList<ProductImage>();
+        orders = new ArrayList<Order>();
     }
 
     public void addImage(ProductImage productImage) {
         productImage.setProduct(this);
         productImages.add(productImage);
     }
-
     public void removeImage(ProductImage image) {
         productImages.remove(image);
     }
+
+    public void addOrder(Order order) {
+        order.setProduct(this);
+        orders.add(order);
+    }
+
+    public void removeOrder(Order order){
+        orders.remove(order);
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+
 
     public Long getId() {
         return id;

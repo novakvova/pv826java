@@ -39,6 +39,9 @@ public class User
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<DbImage> images;
 
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Order> orders;
+
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY, optional = false)
 	private ContactInfo contactInfo;
@@ -53,6 +56,16 @@ public class User
 			contactInfo.setUser(this);
 		}
 		this.contactInfo = contactInfo;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	public ContactInfo getContactInfo() {
