@@ -28,16 +28,19 @@ public class User
 	@Column(nullable=false)
 	@Size(min=4)
 	private String password;
-	
+
 	@ManyToMany(cascade=CascadeType.MERGE)
 	@JoinTable(
-	      name="user_role",
-	      joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
-	      inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+			name="user_role",
+			joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
+			inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
 	private List<Role> roles;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<DbImage> images;
+
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Order> orders;
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY, optional = false)
@@ -53,6 +56,16 @@ public class User
 			contactInfo.setUser(this);
 		}
 		this.contactInfo = contactInfo;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	public ContactInfo getContactInfo() {
