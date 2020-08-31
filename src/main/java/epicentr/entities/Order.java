@@ -12,7 +12,7 @@ import java.util.Date;
 
 @Entity
 
-@Table(name="Order")
+@Table(name="tblOrders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,6 @@ public class Order {
     private String description;
 
     private Date orderDate;
-
 
     private boolean isConfirmed;
 
