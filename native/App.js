@@ -29,10 +29,12 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import LoginScreen from './components/Account/Login/LoginScreen';
 
 const MainNavigator = createStackNavigator(
   {
     Home: {screen: HomeScrean},
+    Login: {screen: LoginScreen},
  
   },
   {
@@ -56,7 +58,12 @@ const RootContainer = createAppContainer(MainNavigator);
 class App extends React.Component {
   render() {
     return (
-      <Text>HELLO</Text>
+      <NavigationContainer>
+        <Drawer.Navigator  drawerContent={props => <DrawerContent {...props} />} >
+          <Drawer.Screen name="Home" component={HomeScrean} />
+          <Drawer.Screen name="Login" component={LoginScreen} />
+        </Drawer.Navigator>
+      </NavigationContainer>
     );
   }
 }
