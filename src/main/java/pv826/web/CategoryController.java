@@ -39,7 +39,7 @@ public class CategoryController {
     @GetMapping("/category")
     public String home(Model model)
     {
-        model.addAttribute("images", categoryRepository.findAll());
+        model.addAttribute("categories", categoryRepository.findAll());
         return "category/index";
     }
 
@@ -76,7 +76,7 @@ public class CategoryController {
 
                 Category category = new Category();
                 category.setName(model.getName());
-                category.setName(imageName);
+                category.setImage(imageName);
                 categoryRepository.save(category);
             } catch (Exception e) {
                 return "You failed to upload " + imageName + " => " + e.getMessage();
