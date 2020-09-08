@@ -1,6 +1,9 @@
 package pv826.web;
 
 
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import pv826.entities.User;
 import pv826.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import pv826.repositories.UserRepository;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 
 /**
@@ -35,8 +39,12 @@ public class AccountConroller
         return "register";
     }
     @PostMapping("/register")
-    public String Register(User user)
+
+    public String Register(@Valid User user, BindingResult bindingResult)
     {
+        if (bindingResult.hasErrors()) {
+            return "/register";
+        }
         String pass = passwordEncoder.encode(user.getPassword());
         user.setPassword(pass);
         User u = new User();
