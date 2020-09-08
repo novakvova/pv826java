@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -20,13 +21,17 @@ public class User
 {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
+
 	@Column(nullable=false)
+	@NotBlank(message = "Name is mandatory")
 	private String name;
 	@Column(nullable=false, unique=true)
 	@Email(message="{errors.invalid_email}")
+	@NotBlank(message = "Email is mandatory")
 	private String email;
 	@Column(nullable=false)
 	@Size(min=4)
+	@NotBlank(message = "Email is mandatory")
 	private String password;
 
 	@ManyToMany(cascade=CascadeType.MERGE)
