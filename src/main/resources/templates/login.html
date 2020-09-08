@@ -16,7 +16,7 @@
                     <div class="col-md-12 align-content-center">
                         <div class="panel col-xl-5" style="background-color: transparent">
                             <div class="panel panel-primary banner-button Transp">
-                                <div class="panel-heading" style="background-color: #6f42c1">Ввійти</div>
+                                <div class="panel-heading" style="background-color: #6f42c1">Вхід на сайт</div>
                                 <div class="panel-body">
                                     <form action="home" th:action="@{/login}" method="post">
                                         <div class="form-group has-feedback">
@@ -37,8 +37,9 @@
                                         <div class="row">
                                             <div class="align-content-center">
                                                 <button type="submit" class="btn btn-primary btn-block btn-flat UpDown"
-                                                        th:text="#{label.login}">LogIn
+                                                        th:text="#{label.login}">Вхід
                                                 </button>
+                                                <a th:href="@{/register}">Реєстрація</a>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -46,17 +47,15 @@
                                                 <div th:if="${param.error}"
                                                      class="alert alert-danger alert-dismissable">
                                                     <p>
-                                                        <i class="icon fa fa-ban"></i> <span
-                                                            th:text="#{error.login_failed}">Invalid Email and
-											Password.</span>
+                                                        <i class="icon fa fa-ban"></i>
+                                                        <span th:text="#{error.login_failed}">Invalid Email and Password.</span>
                                                     </p>
                                                 </div>
                                                 <div th:if="${param.logout}"
                                                      class="alert alert-info alert-dismissable">
                                                     <p>
-                                                        <i class="icon fa fa-info"></i> <span
-                                                            th:text="#{info.logout_success}">You have been logged
-											out.</span>
+                                                        <i class="icon fa fa-info"></i>
+                                                        <span th:text="#{info.logout_success}">You have been logged	out.</span>
                                                     </p>
                                                 </div>
                                                 <div th:if="${msg!=null}"
