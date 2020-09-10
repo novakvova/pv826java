@@ -22,7 +22,7 @@
                      th:src="'/files/' + ${category.getImage()}"
                      alt="Golden Gate Bridge with San Francisco in distance">
                 <h4 th:text="${category.getName()}"></h4>
-                <a class="btn btn-danger" th:href="'/gallery/delete/' + ${category.getId()}">Видалити</a>
+                <a class="btn btn-danger" th:href="'/category/delete/' + ${category.getId()}">Видалити</a>
             </div>
          </div>
 <!--        <div class="row">-->
