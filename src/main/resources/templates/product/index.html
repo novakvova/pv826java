@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout">
+<head>
+    <title>Список продуктів</title>
+    <div layout:fragment="styles">
+        <link th:href="@{'/lib/css/lightbox2/css/lightbox.min.css'}" rel="stylesheet"/>
+    </div>
+</head>
+<body>
+<div layout:fragment="content" style="margin-top: 50px;">
+<div class="container">
+    <a class="btn btn-success" th:href="@{/product/create}">Категорію</a>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb" th:each="product : ${products}">
+            <h4 th:text="${product.getName()}"></h4>
+            <div th:text="${product.getDescription()}"></div>
+            <div th:text="${product.getPrice()}">грн</div>
+            <a class="btn btn-danger" th:href="'/product/delete/' + ${product.getId()}">Видалити</a>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

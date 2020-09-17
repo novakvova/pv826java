@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      layout:decorator="layout">
+<head>
+    <div layout:fragment="styles">
+        <link th:href="@{'/lib/css/lightbox2/css/lightbox.min.css'}" rel="stylesheet"/>
+    </div>
+    <title>Створення продукта</title>
+</head>
+<body>
+<div layout:fragment="content" style="margin-top: 50px;">
+<div class="container" style="background-color: #FFFFFF">
+    <h1>Додати категорію</h1>
+    <form th:action="@{/product/create}" method="post" id="form" class="form" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="name">Назва продукту</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="price">Ціна продукту</label>
+            <input type="number" class="form-control" id="price" name="price">
+        </div>
+        <div class="form-group">
+            <label for="description">Опис продукту</label>
+            <input type="string" class="form-control" id="description" name="description">
+        </div>
+        <select class="form-control" >
+            <option>Виберіть категорію</option>
+            <option th:each="category : ${categories}" th:text="${category.getName()}" ></option>
+        </select>
+        <button type="submit" class="btn btn-default">Додати</button>
+    </form>
+</div>
+</div>
+</body>
+</html>
